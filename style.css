@@ -1,0 +1,388 @@
+/* Palet Warna Gemas Pink */
+:root {
+  --pink-primary: #eca3af; /* Pastel Pink */
+  --pink-accent: #c1667b88; /* Hot Pink/Deep Pink */
+  --pink-light-bg: rgb(225, 185, 185);
+  --text-dark: #333333;
+  --text-light: #666666;
+  --font-heading: "Pacifico", cursive; /* Font playful untuk judul */
+  --font-body: "Poppins", sans-serif; /* Font bersih untuk konten */
+}
+
+/* Global Reset & Basic Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Playfair(--font-body);
+  line-height: 1.6;
+  background-color: var(--pink-light-bg);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--pink-accent); /* Judul pakai accent pink */
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  font-size: 2.5em;
+}
+h3 {
+  font-size: 1.8em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--pink-accent);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--text-dark);
+}
+
+/* 1. Header & Navbar (Flexbox) */
+header {
+  background-color: rgb(219, 189, 214);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  /* Flexbox untuk layout navbar */
+  display: flex;
+  justify-content: space-between; /* Logo di kiri, menu di kanan */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 2em;
+  color: var(--pink-accent);
+}
+
+nav ul {
+  /* Flexbox untuk item menu */
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 0;
+  font-weight: 600;
+  color: var(--text-dark);
+  position: relative; /* Untuk efek underline */
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--pink-accent);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* 2. Hero Section (Flexbox) */
+.hero-section {
+  display: flex; /* Flexbox untuk menata konten dan gambar */
+  flex-direction: column; /* Konten di atas, gambar di bawah (default) */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  background-color: var(--pink-primary);
+  color: rgb(236, 205, 233);
+  min-height: 80vh;
+}
+
+.hero-section h1 {
+  color: rgb(231, 195, 234);
+  font-size: 4em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section p {
+  font-size: 1.5em;
+  margin-top: 15px;
+  max-width: 800px;
+  color: rgba(139, 65, 65, 0.9);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Skincare Routine Sections (Grid) */
+.skincare-routine-section {
+  padding: 80px 5%;
+  background-color: var(--pink-light-bg);
+}
+
+.skincare-routine-section:nth-of-type(odd) {
+  /* Selang-seling warna bg */
+  background-color: rgb(225, 185, 185);
+}
+
+.skincare-grid {
+  /* Grid untuk tata letak produk */
+  display: grid;
+  /* 3 kolom di desktop */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skincare-item {
+  background-color: rgb(219, 177, 194);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skincare-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.skincare-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain; /* Agar gambar tidak terpotong */
+  border-radius: 50%; /* Bentuk bulat untuk ikon produk */
+  border: 3px solid var(--pink-primary);
+  margin-bottom: 15px;
+  background-color: var(--pink-light-bg);
+}
+
+.skincare-item h3 {
+  font-family: var(--font-body); /* Judul item pakai font body */
+  font-weight: 600;
+  font-size: 1.3em;
+  color: var(--pink-accent);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.skincare-item p {
+  font-size: 0.95em;
+  color: var(--text-light);
+}
+
+/* 4. Quotes Section (Flexbox) */
+.quotes-section {
+  padding: 80px 5%;
+  background-color: var(--pink-primary);
+  text-align: center;
+}
+
+.quotes-section h2 {
+  color: rgb(255, 219, 255);
+  margin-bottom: 60px;
+}
+
+.quotes-flex {
+  /* Flexbox untuk menampilkan quote cards */
+  display: flex;
+  flex-wrap: wrap; /* Agar card bisa turun ke bawah di mobile */
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quote-card {
+  background-color: rgb(184, 144, 177);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  flex: 1; /* Agar card bisa flexibel ukurannya */
+  min-width: 280px; /* Lebar minimum card */
+  max-width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quote-card p {
+  font-style: italic;
+  font-size: 1.1em;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.quote-card span {
+  font-weight: 600;
+  color: var(--pink-accent);
+  align-self: flex-end; /* Posisikan nama di kanan bawah */
+}
+
+/* 5. Footer (Flexbox) */
+footer {
+  background-color: var(--pink-accent);
+  color: rgb(141, 95, 122);
+  padding: 40px 20px;
+  text-align: center;
+  /* Flexbox untuk mengatur konten di tengah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-content h3 {
+  color: rgb(208, 176, 209);
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: rgb(223, 176, 205);
+  font-size: 2.2em;
+  margin: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: var(--pink-light-bg);
+}
+
+footer p {
+  margin-top: 25px;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =================================================== */
+/* 6. Responsiveness (Media Queries) */
+/* =================================================== */
+
+/* Untuk Tablet (Lebar maksimum 992px) */
+@media screen and (max-width: 992px) {
+  .hero-section {
+    flex-direction: column; /* Tetap kolom di tablet untuk konten di atas */
+    padding: 80px 20px;
+  }
+  .hero-section h1 {
+    font-size: 3em;
+  }
+  .hero-section p {
+    font-size: 1.3em;
+  }
+  .hero-image {
+    margin-top: 40px;
+    max-width: 400px;
+  }
+
+  .skincare-grid {
+    /* Ubah menjadi 2 kolom untuk tablet */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .quotes-flex {
+    gap: 20px;
+  }
+}
+
+/* Untuk Mobile (Lebar maksimum 600px) */
+@media screen and (max-width: 600px) {
+  /* Navbar Responsif */
+  nav {
+    flex-direction: column; /* Logo di atas, menu di bawah */
+    padding: 15px 10px;
+  }
+  .logo {
+    margin-bottom: 10px;
+  }
+  nav ul {
+    margin-top: 10px;
+    flex-wrap: wrap; /* Agar link bisa ke baris baru */
+    justify-content: center;
+  }
+  nav ul li {
+    margin: 0 10px 10px 10px; /* Jarak antar link di mobile */
+  }
+  nav ul li a {
+    font-size: 0.9em;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 60px 15px;
+    min-height: auto;
+  }
+  .hero-section h1 {
+    font-size: 2.5em;
+  }
+  .hero-section p {
+    font-size: 1em;
+  }
+  .hero-image {
+    max-width: 300px;
+    margin-top: 30px;
+  }
+
+  /* Skincare Grid */
+  .skincare-grid {
+    /* 1 kolom penuh untuk mobile */
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* Quotes Section */
+  .quotes-section h2 {
+    font-size: 2em;
+  }
+  .quote-card {
+    min-width: unset; /* Hapus batasan min-width */
+    max-width: 100%; /* Penuh di mobile */
+    padding: 25px;
+  }
+
+  /* Footer */
+  .social-links a {
+    font-size: 1.8em;
+    margin: 0 10px;
+  }
+  footer p {
+    font-size: 0.8em;
+  }
+}
